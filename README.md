@@ -1,6 +1,14 @@
 # T300 robot 3.0 with BLE, 
 
-This is the third iteration of our robots at AISVN as described in [the history](#history) further down.
+This is the third iteration of our robots at AISVN as described in [the history](#history) further down. It used the Arduino Leonardo and incorporates:
+
+- Motorshield L298 with buzzer on pin4
+- 4 DoF robot arm with 4 servos on pin A0 to A3
+- Bluetooth Low Energy connection with pin 8
+- PWM motor control on pin 10 to 13
+- 1602 LCD display over I2C on pin 21 and 22 SDA SCL
+- MPU6050 gyroscope for location control on I2C
+- IR encoder for one axis on pin A4 and A5
 
 ## Materials
 
