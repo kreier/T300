@@ -1,4 +1,4 @@
-# T300 robot 3.0 with BLE, 
+# T300 robot 3.0 with BLE, ultrasonic, robot arm and display
 
 This is the third iteration of our robots at AISVN as described in [the history](#history) further down. It used the Arduino Leonardo and incorporates:
 
