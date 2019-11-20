@@ -2,7 +2,7 @@
 
 This is the third iteration of our robots at AISVN as described in [the history](#history) further down. It used the Arduino Leonardo and incorporates:
 
-<img src="docs/T300-20191119.jpg" width="40%" aligh="right">
+<img src="docs/T300-20191119.jpg" width="40%" align="right">
 
 - Motorshield L298 with buzzer on pin4
 - 4 DoF robot arm with 4 servos on pin A0 to A3
