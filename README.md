@@ -2,6 +2,8 @@
 
 This is the third iteration of our robots at AISVN as described in [the history](#history) further down. It used the Arduino Leonardo and incorporates:
 
+<img src="docs/T300-20191119.jpg" width="40%" style="float:right;">
+
 - Motorshield L298 with buzzer on pin4
 - 4 DoF robot arm with 4 servos on pin A0 to A3
 - Bluetooth Low Energy connection with pin 8
@@ -37,14 +39,6 @@ All in all some 550.000₫ are already spend on these simple materials. Further 
 
 ### History
 
-- 2018-10-09 [T100](https://github.com/kreier/T100) first robot with Bluetooth remote control, 2 wheels, L293D motorshield. _2018-10-09_
-- [T110](https://github.com/kreier/T110) updated robot with Bluetooth 4.0 remote to be used by iOS devices. _2018-10-25_
-- [T80](https://github.com/kreier/T80) simplified version for Viet for the [Sciencefair 2018]() Design project. Has a L298N motor driver and HC-05 bluetooth module. Power supply was upgraded to LiIon because the 4 AA batteries provided not enough voltage for the bluetooth module once the motors where started. _2019-03-26_
-- [T200](https://github.com/kreier/T200) updated 2-wheel robot, controlled by an ESP32 over BLE and the software []() reverse engineered for our purpose
-- [asa](https://github.com/kreier/asa) robot from first ASA period 2019/2020, evolved to T300 in the second period. After 9 sessions 60% of the students successfully finished their remote controlled robot. _2019-11-04_
-- [T300](https://kreier.github.io/T300) this robot with 4 wheels, robot arm, ultrasonic distance sensor is the enhanced asa robot.
-
-
 - 2019-12-17 [T300](https://kreier.github.io/T300) this robot with 4 wheels, robot arm, ultrasonic distance sensor is the enhanced asa robot. Winner of the first AISVN robot competition [ROBOT 2019](https://sites.google.com/ais.edu.vn/robot2019).
 - 2019-11-04 [asa](https://github.com/kreier/asa) robot from first ASA period 2019/2020, evolved to T300 in the second period. After 9 sessions 60% of the students successfully finished their remote controlled robot.
 - 2019-04-08 [T200](https://github.com/kreier/T200) updated 2-wheel robot, controlled by an ESP32 over BLE and the software []() reverse engineered for our purpose.
@@ -55,11 +49,5 @@ All in all some 550.000₫ are already spend on these simple materials. Further 
 
 ### Gallery
 
-<img src="docs/T500-20191119.jpg" width="48%">
-<img src="docs/T400-20191119.jpg" width="48%">
-<img src="docs/T300-20191119.jpg" width="48%">
-<img src="docs/asa-20191119.jpg" width="48%">
-<img src="docs/T200-20191119.jpg" width="48%">
-<img src="docs/T80.jpg" width="48%">
-<img src="docs/T100-20191119.jpg" width="48%">
+<img src="docs/T500-20191119.jpg" width="48%"><img src="docs/T400-20191119.jpg" width="48%"><img src="docs/T300-20191119.jpg" width="48%"><img src="docs/asa-20191119.jpg" width="48%"><img src="docs/T200-20191119.jpg" width="48%"><img src="docs/T80.jpg" width="48%"><img src="docs/T100-20191119.jpg" width="48%">
 
