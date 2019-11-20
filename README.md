@@ -57,7 +57,7 @@ how to control with 10 keys
 - 2019-12-17 [T300](https://kreier.github.io/T300) this robot with 4 wheels, robot arm, ultrasonic distance sensor is the enhanced asa robot. Winner of the first AISVN robot competition [ROBOT 2019](https://sites.google.com/ais.edu.vn/robot2019).
 - 2019-11-04 [asa](https://github.com/kreier/asa) robot from first ASA period 2019/2020, evolved to T300 in the second period. After 9 sessions 60% of the students successfully finished their remote controlled robot.
 - 2019-04-08 [T200](https://github.com/kreier/T200) updated 2-wheel robot, controlled by an ESP32 over BLE and the software []() reverse engineered for our purpose.
-- 2019-03-26 [T80](https://github.com/kreier/T80) simplified version for Viet for the [Sciencefair 2018]() Design project. Has a L298N motor driver and HC-05 bluetooth module. Power supply was upgraded to LiIon because the 4 AA batteries provided not enough voltage for the bluetooth module once the motors where started. 
+- 2019-03-26 [T80](https://github.com/kreier/T80) simplified version for Viet for the [Sciencefair 2019](https://sites.google.com/ais.edu.vn/sciencefair2019/grade-9) Design project. Has a L298N motor driver and HC-05 bluetooth module. Power supply was upgraded to LiIon because the 4 AA batteries provided not enough voltage for the bluetooth module once the motors where started. 
 - 2018-10-25 [T110](https://github.com/kreier/T110) updated robot with Bluetooth 4.0 remote to be used by iOS devices.
 - 2018-10-09 [T100](https://github.com/kreier/T100) first robot with Bluetooth remote control, 2 wheels, L293D motorshield.
 
