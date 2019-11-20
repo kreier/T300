@@ -2,7 +2,7 @@
 
 This is the third iteration of our robots at AISVN as described in [the history](#history) further down. It used the Arduino Leonardo and incorporates:
 
-<img src="docs/T300-20191119.jpg" width="40%" style="float:right;">
+<img src="docs/T300-20191119.jpg" width="40%" aligh="right">
 
 - Motorshield L298 with buzzer on pin4
 - 4 DoF robot arm with 4 servos on pin A0 to A3
@@ -37,6 +37,21 @@ All in all some 550.000₫ are already spend on these simple materials. Further 
 * Connect the motors to M1 and M4 on the L293D shield
 * Connect the bluetooth module pin TXD to pin 8 of the motorshield
 
+## Remote
+
+how to control with 10 keys
+
+- 'F' forward
+- 'B' backward
+- 'L' turn left
+- 'R' turn right
+- 'M' select (menu)
+- 'S' start
+- 'T' triangle
+- 'C' circle
+- 'X' button X
+- 'Q' sQuare
+
 ### History
 
 - 2019-12-17 [T300](https://kreier.github.io/T300) this robot with 4 wheels, robot arm, ultrasonic distance sensor is the enhanced asa robot. Winner of the first AISVN robot competition [ROBOT 2019](https://sites.google.com/ais.edu.vn/robot2019).
@@ -49,5 +64,5 @@ All in all some 550.000₫ are already spend on these simple materials. Further 
 
 ### Gallery
 
-<img src="docs/T500-20191119.jpg" width="48%"><img src="docs/T400-20191119.jpg" width="48%"><img src="docs/T300-20191119.jpg" width="48%"><img src="docs/asa-20191119.jpg" width="48%"><img src="docs/T200-20191119.jpg" width="48%"><img src="docs/T80.jpg" width="48%"><img src="docs/T100-20191119.jpg" width="48%">
+<img src="docs/T500-20191119.jpg" width="48%"> <img src="docs/T400-20191119.jpg" width="48%"> <img src="docs/T300-20191119.jpg" width="48%"> <img src="docs/asa-20191119.jpg" width="48%"> <img src="docs/T200-20191119.jpg" width="48%"> <img src="docs/T80.jpg" width="48%"> <img src="docs/T100-20191119.jpg" width="48%">
 
