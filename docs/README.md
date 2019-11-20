@@ -2,7 +2,7 @@
 
 This is our third iteration of student created robots. Have a look:
 
-(image follows)
+![T300](T300-20191119.jpg)
 
 ## Subtitle
 
@@ -59,7 +59,13 @@ how to control with 10 keys
 
 2019-03-26
 
-![T80](T80-20191119.jpg)
+![T80](T80.jpg)
+
+### T110
+
+2018-10-25
+
+![T110](T110-20191119.jpg)
 
 ### T100
 
