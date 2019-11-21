@@ -52,7 +52,32 @@ how to control with 10 keys
 - 'X' button X
 - 'Q' sQuare
 
-### History
+## Pin assignment
+
+| pin | general |      used for      |         note         |
+|:---:|:-------:|:------------------:|:--------------------:|
+| 0   |    RX   |    Bluetooth RX    |                      |
+| 1   |    TX   |    Bluetooth TX    |                      |
+| 2   |         | Ultrasonic trigger |                      |
+| 3~  |         |   Ultrasonic echo  |                      |
+| 4   |         |       buzzer       |                      |
+| 5~  |         |                    |                      |
+| 6~  |         |                    |                      |
+| 7   |         |                    |                      |
+| 8   |         |                    |                      |
+| 9~  |         |  Servo ultrasonic  |                      |
+| 10~ |         |         E1         | enable Moter 1 (PWM) |
+| 11~ |         |         E2         | enable Motor 2 (PWM) |
+| 12  |         |         M1         |   forward/backward   |
+| 13  |   LED   |         M2         |   forward/backward   |
+| A0  |         | Servo left-right   | Robotarm 5-175       |
+| A1  |         | Servo up-down      | Robotarm 45-120      |
+| A2  |         | Servo forward-back | Robotarm 65-140      |
+| A3  |         | Servo open-close   | Robotarm 90-125      |
+| A4  |         |                    |                      |
+| A5  |         |                    |                      |
+
+## History
 
 - 2019-12-17 [T300](https://kreier.github.io/T300) this robot with 4 wheels, robot arm, ultrasonic distance sensor is the enhanced asa robot. Winner of the first AISVN robot competition [ROBOT 2019](https://sites.google.com/ais.edu.vn/robot2019).
 - 2019-11-04 [asa](https://github.com/kreier/asa) robot from first ASA period 2019/2020, evolved to T300 in the second period. After 9 sessions 60% of the students successfully finished their remote controlled robot.
