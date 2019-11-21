@@ -54,28 +54,30 @@ how to control with 10 keys
 
 ## Pin assignment
 
-| pin | general |      used for      |         note         |
-|:---:|:-------:|:------------------:|:--------------------:|
-| 0   |    RX   |    Bluetooth RX    |                      |
-| 1   |    TX   |    Bluetooth TX    |                      |
-| 2   |         | Ultrasonic trigger |                      |
-| 3~  |         |   Ultrasonic echo  |                      |
-| 4   |         |       buzzer       |                      |
-| 5~  |         |                    |                      |
-| 6~  |         |                    |                      |
-| 7   |         |                    |                      |
-| 8   |         |                    |                      |
-| 9~  |         |  Servo ultrasonic  |                      |
-| 10~ |         |         E1         | enable Moter 1 (PWM) |
-| 11~ |         |         E2         | enable Motor 2 (PWM) |
-| 12  |         |         M1         |   forward/backward   |
-| 13  |   LED   |         M2         |   forward/backward   |
-| A0  |         | Servo left-right   | Robotarm 5-175       |
-| A1  |         | Servo up-down      | Robotarm 45-120      |
-| A2  |         | Servo forward-back | Robotarm 65-140      |
-| A3  |         | Servo open-close   | Robotarm 90-125      |
-| A4  |         |                    |                      |
-| A5  |         |                    |                      |
+| pin | general |      used for      |          note         |
+|:---:|:-------:|:------------------:|:---------------------:|
+| 0   |    RX   |    Bluetooth RX    |                       |
+| 1   |    TX   |    Bluetooth TX    |   5V level, not 3.3!  |
+| 2   |         | Ultrasonic trigger |                       |
+| 3~  |         |   Ultrasonic echo  |                       |
+| 4   |         |       buzzer       |   acoustic feedback   |
+| 5~  |         |                    |                       |
+| 6~  |         |                    |                       |
+| 7   |         |                    |                       |
+| 8   |         |                    |                       |
+| 9~  |         |  Servo ultrasonic  |                       |
+| 10~ |         |         E1         |  enable Moter 1 (PWM) |
+| 11~ |         |         E2         |  enable Motor 2 (PWM) |
+| 12  |         |         M1         |    forward/backward   |
+| 13  |   LED   |         M2         |    forward/backward   |
+| A0  |         | Servo left-right   | Robotarm 5-175        |
+| A1  |         | Servo up-down      | Robotarm 45-120       |
+| A2  |         | Servo forward-back | Robotarm 65-140       |
+| A3  |         | Servo open-close   | Robotarm 90-125       |
+| A4  |         |                    |                       |
+| A5  |         |                    |                       |
+| SDA | I2C     | Display 1602       | optic feedback        |
+| SCL | I2C     | MPU6050            | gyroscope orientation |
 
 ## History
 
