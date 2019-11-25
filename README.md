@@ -41,6 +41,19 @@ All in all some 550.000₫ are already spend on these simple materials. Further 
 
 how to control with 10 keys
 
+|   Key  | Character |  Mode 1  |  Mode 2  |    Mode 3    |      Mode 4      |
+|:------:|:---------:|:--------:|:--------:|:------------:|:----------------:|
+|    ↑   |     F     |  forward |  forward |              |                  |
+|    ↓   |     B     | backward | backward |              |                  |
+|    ←   |     L     |   left   |   left   |     left     |                  |
+|    →   |     R     |   right  |   right  |     right    |                  |
+| Select |     M     |   Menu+  |   Menu+  |     Menu+    |       Menu+      |
+|  Start |     S     |   Start  |  Return  | toggle sound | start autonomous |
+|    △   |     T     |   turbo  |    up    |              |                  |
+|    ⚪   |     C     |  faster  |   open   |              |                  |
+|    X   |     X     |   Stop   |   down   |              |       Stop       |
+|    ☐   |     Q     |  slower  |   close  |              |                  |
+
 - 'F' forward
 - 'B' backward
 - 'L' turn left
