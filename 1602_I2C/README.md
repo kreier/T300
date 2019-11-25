@@ -24,6 +24,10 @@ void loop() {
 }
 ```
 
+And the output is:
+
+![Hello world on the display](2019-11-24.jpg)
+
 ### Bluetooth incomming
 
 Bluetooth is connected to pin 0 and 1 and can be accessed by Serial1.
