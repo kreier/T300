@@ -6,9 +6,9 @@ This is the third iteration of our robots at AISVN as described in [the history]
 
 - Motorshield L298 with buzzer on pin4
 - 4 DoF robot arm with 4 servos on pin A0 to A3
-- Bluetooth Low Energy connection with pin 8
+- Bluetooth Low Energy connection with pin 0 and 1 (Serial1)
 - PWM motor control on pin 10 to 13
-- 1602 LCD display over I2C on pin 21 and 22 SDA SCL
+- 1602 LCD display over I2C on pin 2 and 3 SDA SCL
 - MPU6050 gyroscope for location control on I2C
 - IR encoder for one axis on pin A4 and A5
 
@@ -54,6 +54,8 @@ how to control with 10 keys
 |    X   |     X     |   Stop   |   down   |              |       Stop       |
 |    ☐   |     Q     |  slower  |   close  |              |                  |
 
+<img src="docs/controller.jpg" width="50%" align="right">
+
 - 'F' forward
 - 'B' backward
 - 'L' turn left
@@ -70,7 +72,7 @@ how to control with 10 keys
 | pin | general |      used for      |         note         |
 |:---:|:-------:|:------------------:|:--------------------:|
 | 0   |    RX   |    Bluetooth RX    |                      |
-| 1   |    TX   |    Bluetooth TX    |  5V level, not 3.3!  |
+| 1   |    TX   |    Bluetooth TX    | has voltage divider 1kΩ/2kΩ for 3.3V |
 | 2   |   SDA   |         I2C        |   Display 1602 and   |
 | 3~  |   SCL   |         I2C        |  MPU 6050 gyroscope  |
 | 4   |         |       buzzer       |   acoustic feedback  |
