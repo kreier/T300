@@ -106,3 +106,13 @@ how to control with 10 keys
 
 <img src="docs/T500-20191119.jpg" width="48%"> <img src="docs/T400-20191119.jpg" width="48%"> <img src="docs/T300-20191119.jpg" width="48%"> <img src="docs/asa-20191119.jpg" width="48%"> <img src="docs/T200-20191119.jpg" width="48%"> <img src="docs/T80.jpg" width="48%"> <img src="docs/T100-20191119.jpg" width="48%">
 
+### Future updates
+
+The above program consumes 91% of the available RAM of the Arduino Leonardo. For future projects we need more. Some contenstants:
+
+|        Model       | RAM instructions | RAM data |  Clock  | Pins |
+|:------------------:|:----------------:|:--------:|:-------:|:----:|
+| Arduino Leonardo   |      2.5 KiB     |     -    |  16 MHz |  20  |
+| ESP8266 (WeMos D1) |      32 KiB      |   80KiB  |  80 MHz |  12  |
+| ESP8266 (NodeMCU)  |      128 KiB     |   4 MiB  |  80 MHz |  12  |
+| ESP32 (NodeMCU)    |      520 KiB     |     -    | 240 MHz |  20  |
