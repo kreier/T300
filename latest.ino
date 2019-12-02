@@ -2,6 +2,9 @@
 
 #include <NewPing.h>
 #include <Servo.h>
+#include <Wire.h>
+#include <hd44780.h>
+#include <hd44780ioClass/hd44780_I2Cexp.h> // for I2C expander
 
 #define PIN_BUZZER     4
 #define PIN_TRIGGER    7
@@ -12,28 +15,38 @@
 #define PIN_E2        11
 #define PIN_M2        13
 #define MAX_DISTANCE 350
-#define FORWARD        F // easier to change back for inflexible software
-#define BACKWARD       B
-#define LEFT           L
-#define RIGHT          R
-#define SELECT         M
-#define START          S
-#define TRIANGLE       T
-#define CIRCLE         C
-#define STOP           X
-#define SQUARE         Q
-
 
 int  spd = 0;
 char BTinput = '0';
-int  DistanceCm;
-int  pos = 0;   
+int  pos = 0;
+int  mode = 1;
+String message = "Stop   ";
 
+hd44780_I2Cexp lcd; // declare lcd object:
 NewPing sonar(PIN_TRIGGER, PIN_ECHO, MAX_DISTANCE);
 Servo myservo;  
 
-void distance() {
-   DistanceCm = sonar.ping_cm(); // 10 pings per second  
+int distance() {
+   return sonar.ping_cm(); // 10 pings per second  
+}
+
+void buz() {
+    digitalWrite(PIN_BUZZER, HIGH);
+    delay(20);
+    digitalWrite(PIN_BUZZER, LOW);
+}
+
+void beep(int beeps) {
+  for(int i = 0; i < beeps; i++) {
+    buz();
+    delay(80);
+  }
+}
+
+void disp(int lcd_x, int lcd_y, String text) {
+  Serial1.print( text );
+  lcd.setCursor(lcd_x, lcd_y);
+  lcd.print( text );
 }
 
 void setup() {
@@ -48,42 +61,42 @@ void setup() {
   myservo.attach(PIN_SERVO);
   myservo.write(90);
 
-  digitalWrite(PIN_BUZZER, HIGH);
-  delay(50);
-  digitalWrite(PIN_BUZZER, LOW);
-  delay(50);
-  digitalWrite(PIN_BUZZER, HIGH);
-  delay(50);
-  digitalWrite(PIN_BUZZER, LOW);
-  delay(50);
-  Serial1.begin(9600);  // HC-10 on pin 0 and 1 
+  beep(2);
+  Serial1.begin(9600);  // HC-10 BLE on pin 0 and 1
+  lcd.begin(16,2);
+  disp(0, 0, "T300 robot car");
 }
  
 void loop() {
   if (Serial1.available()) 
   {
     BTinput = Serial1.read();
-    if(BTinput == 'FORWARD') { // up - forward
+    // MODE 1: Drive
+    if(BTinput == 'F'  && mode == 1) { // up - forward
         digitalWrite(PIN_M1, HIGH);
         digitalWrite(PIN_M2, HIGH);
+        message = "forward ";
         if(spd == 0) spd = 200;
     }
-    if(BTinput == 'BACKWARD') { // down - backward
+    if(BTinput == 'B' && mode == 1) { // down - backward
         digitalWrite(PIN_M1, LOW);
         digitalWrite(PIN_M2, LOW);
+        message = "backward";
         if(spd == 0) spd = 200;
     }
-    if(BTinput == 'LEFT') { // left turn
+    if(BTinput == 'L' && mode == 1) { // left turn
         digitalWrite(PIN_M1, HIGH);
         digitalWrite(PIN_M2, LOW);
+        message = "left    ";
         if(spd == 0) spd = 128;
     }
-    if(BTinput == 'RIGHT') { // right turn
+    if(BTinput == 'R' && mode == 1) { // right turn
         digitalWrite(PIN_M1, LOW);
         digitalWrite(PIN_M2, HIGH);
+        message = "right   ";
         if(spd == 0) spd = 128;
     }
-    if(BTinput == 'H') {          // square  - A - autonomus with the servo
+    if(BTinput == 'S') {          // square  - A - autonomus with the servo
       for (pos = 30; pos <= 150; pos += 1) { 
         myservo.write(pos);   
         delay(15);      
@@ -93,23 +106,30 @@ void loop() {
          delay(15);    
       }
       myservo.write(90);
+      message = "scanning";
     }
-    if(BTinput == 'E') spd = 255; // triangle - B - FAST
-    if(BTinput == 'F') {          // circle   - Y - SELECT
+    if(BTinput == 'T') {
+      spd = 255; // triangle - B - FAST
+      message = "Fast    ";
+    }
+    if(BTinput == 'M') {          // circle   - Y - SELECT
       // what is my mode? Beep 1 for remote 2 for autonomus and 3 for autonomus with ultrasonic beep
-      digitalWrite(PIN_BUZZER, HIGH);  
-      delay(50);
-      digitalWrite(PIN_BUZZER, LOW);
-      delay(50);
-      digitalWrite(PIN_BUZZER, HIGH);
-      delay(50); 
+      mode++;
+      if(mode > 4) mode = 1;
+      beep(mode);
+      message = "Mode ";
+      message += String(mode);
+      message += "   ";
     }
-    if(BTinput == 'STOP') spd = 0;   // cross   - X - STOP
+    if(BTinput == 'X') {
+      spd = 0;   // cross   - X - STOP
+      message = "Stop    ";
+    }
+    if(BTinput == 'Q') message = "square  ";
+    if(BTinput == 'C') message = "circle  ";
+    disp(0, 1, message);
     analogWrite(PIN_E1, spd);
     analogWrite(PIN_E2, spd);
-    digitalWrite(PIN_BUZZER, HIGH);    
-    delay(5);
-    digitalWrite(PIN_BUZZER, LOW);
   }
-    distance();
+  distance();
 }
