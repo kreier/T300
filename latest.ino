@@ -1,4 +1,16 @@
 // Setup with 10 keys as defined in the root folder and used with kreier/remote and BitBlue on iOS
+//
+// Matrix for control - mode1
+//
+// key index M1[] M2[] SPED text
+//  F    0   HIGH HIGH 255  forward
+//  B    1   LOW  LOW  255  backward
+//  L    2   HIGH LOW  255  left
+//  R    3   LOW  HIGH 255  right
+//
+//
+//
+
 
 #include <NewPing.h>
 #include <Servo.h>
@@ -21,6 +33,10 @@ char BTinput = '0';
 int  pos = 0;
 int  mode = 1;
 String message = "Stop   ";
+boolean M1[] = {HIGH, LOW, HIGH, LOW};
+boolean M2[] = {HIGH, LOW, LOW, HIGH};
+int sped[] = {255, 255, 200, 200};
+String text[] = {"forward","backward","left","right"};
 
 hd44780_I2Cexp lcd; // declare lcd object:
 NewPing sonar(PIN_TRIGGER, PIN_ECHO, MAX_DISTANCE);
@@ -66,7 +82,9 @@ void setup() {
   lcd.begin(16,2);
   disp(0, 0, "T300 robot car");
 }
- 
+
+
+
 void loop() {
   if (Serial1.available()) 
   {
