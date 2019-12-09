@@ -15,8 +15,7 @@
 #include <NewPing.h>
 #include <Servo.h>
 #include <Wire.h>
-#include <hd44780.h>
-#include <hd44780ioClass/hd44780_I2Cexp.h> // for I2C expander
+#include <LiquidCrystal_I2C.h>
 
 #define PIN_BUZZER     4
 #define PIN_TRIGGER    7
@@ -30,15 +29,17 @@
 
 int  spd = 0;
 char BTinput = '0';
+int BTkey = 0;
 int  pos = 0;
 int  mode = 1;
+int keyindex[] = {"F","B","L","R","T","C","X","Q","M","S"};
 String message = "Stop   ";
 boolean M1[] = {HIGH, LOW, HIGH, LOW};
 boolean M2[] = {HIGH, LOW, LOW, HIGH};
 int sped[] = {255, 255, 200, 200};
 String text[] = {"forward","backward","left","right"};
 
-hd44780_I2Cexp lcd; // declare lcd object:
+LiquidCrystal_I2C lcd(0x27, 16, 2); 
 NewPing sonar(PIN_TRIGGER, PIN_ECHO, MAX_DISTANCE);
 Servo myservo;  
 
@@ -48,8 +49,10 @@ int distance() {
 
 void buz() {
     digitalWrite(PIN_BUZZER, HIGH);
+    lcd.noBacklight();
     delay(20);
     digitalWrite(PIN_BUZZER, LOW);
+    lcd.backlight();
 }
 
 void beep(int beeps) {
@@ -79,7 +82,8 @@ void setup() {
 
   beep(2);
   Serial1.begin(9600);  // HC-10 BLE on pin 0 and 1
-  lcd.begin(16,2);
+  lcd.init();
+  //lcd.backlight();
   disp(0, 0, "T300 robot car");
 }
 
