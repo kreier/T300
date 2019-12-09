@@ -92,6 +92,10 @@ how to control with 10 keys
 | A4  |         |                    |                      |
 | A5  |         |                    |                      |
 
+### Issues
+
+After some time of use almost all of the boards no longer support PWM for pin 11 on the motor shield. Any value below 255 is interpreted as a low and the motor is shut off. Not very usefull for a motor project. Same is true for pin 1. Even though a voltage divider with 1kΩ/2kΩ is reducing the output voltage of the Arduino to 3.3 V several boards don't submit any signal. The bluetooth module can therefore only receive information, but not send them back.
+
 ## History
 
 - 2019-12-17 [T300](https://kreier.github.io/T300) this robot with 4 wheels, robot arm, ultrasonic distance sensor is the enhanced asa robot. Winner of the first AISVN robot competition [ROBOT 2019](https://sites.google.com/ais.edu.vn/robot2019).
