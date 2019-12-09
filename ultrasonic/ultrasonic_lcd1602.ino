@@ -1,6 +1,5 @@
 #include <Wire.h>
-#include <hd44780.h>
-#include <hd44780ioClass/hd44780_I2Cexp.h> // include i/o class header
+#include <LiquidCrystal_I2C.h>
 #include <NewPing.h>
 
 #define  PIN_BUZZER     4
@@ -12,11 +11,12 @@ int DistanceCm;
 
 NewPing sonar(PIN_TRIGGER, PIN_ECHO, MAX_DISTANCE);
 
-hd44780_I2Cexp lcd; // declare lcd object: auto locate & config display for hd44780 chip
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup()
 {
-  lcd.begin(16, 2);
+  lcd.init();
+  lcd.backlight();
   lcd.setCursor(0,0);  
   lcd.print("T300 ultrasonic");
 }
@@ -32,5 +32,5 @@ void distance() {
 void loop()
 {
   distance();
-  delay(10);   // waits 100 milliseconds between pings. 29 milliseconds is the shortest delay between 2 pings
+  delay(100);   // waits 100 milliseconds between pings. 29 milliseconds is the shortest delay between 2 pings
 }
