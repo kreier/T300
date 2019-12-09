@@ -15,7 +15,8 @@
 #include <NewPing.h>
 #include <Servo.h>
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
+#include <hd44780.h>
+#include <hd44780ioClass/hd44780_I2Cexp.h> // include i/o class header
 
 #define PIN_BUZZER     4
 #define PIN_TRIGGER    7
@@ -25,45 +26,60 @@
 #define PIN_M1        12
 #define PIN_E2        11
 #define PIN_M2        13
-#define MAX_DISTANCE 350
+#define MAX_DISTANCE  50
+#define RELAX_SONAR  200 // ms to check for obstacles
+#define RELAX_DRIVE  412 // ms to drive until check direction
 
-int  spd = 0;
-char BTinput = '0';
-int BTkey = 0;
+char BTinput = '0';  // char input via bluetooth
+int  BTkey = 0;      // converted to numerical value
 int  pos = 0;
+int  spd = 0;
 int  mode = 1;
-int keyindex[] = {"F","B","L","R","T","C","X","Q","M","S"};
+int  keyindex[] = {"F","B","L","R","T","C","X","Q","M","S"};
 String message = "Stop   ";
 boolean M1[] = {HIGH, LOW, HIGH, LOW};
 boolean M2[] = {HIGH, LOW, LOW, HIGH};
 int sped[] = {255, 255, 200, 200};
 String text[] = {"forward","backward","left","right"};
+unsigned long timer_sonar;
+unsigned long timer_drive;
+int DistanceCm;
+boolean selbst = LOW;
 
-LiquidCrystal_I2C lcd(0x27, 16, 2); 
+hd44780_I2Cexp lcd; 
 NewPing sonar(PIN_TRIGGER, PIN_ECHO, MAX_DISTANCE);
 Servo myservo;  
 
-int distance() {
-   return sonar.ping_cm(); // 10 pings per second  
-}
-
-void buz() {
-    digitalWrite(PIN_BUZZER, HIGH);
-    lcd.noBacklight();
-    delay(20);
-    digitalWrite(PIN_BUZZER, LOW);
-    lcd.backlight();
+void distance() {
+  DistanceCm = sonar.ping_cm(); // 10 pings per second
+  if (DistanceCm == 0) DistanceCm = MAX_DISTANCE;
+  lcd.setCursor(11,0);
+  lcd.print(DistanceCm); 
+  lcd.print(" cm  ");
+  if(DistanceCm < 20) {
+    if(mode == 3) beep(1);
+    timer_sonar -= (RELAX_SONAR - DistanceCm * 19);
+    if(DistanceCm < 10) { // please stop
+      spd = 0;
+      analogWrite(PIN_E1, spd);
+      analogWrite(PIN_E2, spd);
+    }
+  }   
 }
 
 void beep(int beeps) {
   for(int i = 0; i < beeps; i++) {
-    buz();
+    digitalWrite(PIN_BUZZER, HIGH);
+    lcd.noBacklight();
+    delay(20);
+    digitalWrite(PIN_BUZZER, LOW);
+    lcd.backlight();    
     delay(80);
   }
 }
 
 void disp(int lcd_x, int lcd_y, String text) {
-  Serial1.print( text );
+  Serial1.print( text );        // return via bluetooth
   lcd.setCursor(lcd_x, lcd_y);
   lcd.print( text );
 }
@@ -79,6 +95,8 @@ void setup() {
   analogWrite(PIN_E2, spd);
   myservo.attach(PIN_SERVO);
   myservo.write(90);
+  timer_sonar = millis();
+  timer_drive = millis();
 
   beep(2);
   Serial1.begin(9600);  // HC-10 BLE on pin 0 and 1
@@ -86,7 +104,6 @@ void setup() {
   //lcd.backlight();
   disp(0, 0, "T300 robot car");
 }
-
 
 
 void loop() {
@@ -98,27 +115,25 @@ void loop() {
         digitalWrite(PIN_M1, HIGH);
         digitalWrite(PIN_M2, HIGH);
         message = "forward ";
-        if(spd == 0) spd = 200;
     }
     if(BTinput == 'B' && mode == 1) { // down - backward
         digitalWrite(PIN_M1, LOW);
         digitalWrite(PIN_M2, LOW);
         message = "backward";
-        if(spd == 0) spd = 200;
     }
     if(BTinput == 'L' && mode == 1) { // left turn
         digitalWrite(PIN_M1, HIGH);
         digitalWrite(PIN_M2, LOW);
         message = "left    ";
-        if(spd == 0) spd = 128;
+        if(spd > 200) spd = 160;
     }
     if(BTinput == 'R' && mode == 1) { // right turn
         digitalWrite(PIN_M1, LOW);
         digitalWrite(PIN_M2, HIGH);
         message = "right   ";
-        if(spd == 0) spd = 128;
+        if(spd > 200) spd = 160;
     }
-    if(BTinput == 'S') {          // square  - A - autonomus with the servo
+    if(BTinput == 'S' && mode == 3) {          // Start  -  autonomus with the servo
       for (pos = 30; pos <= 150; pos += 1) { 
         myservo.write(pos);   
         delay(15);      
@@ -129,6 +144,9 @@ void loop() {
       }
       myservo.write(90);
       message = "scanning";
+    }
+    if(BTinput == 'S' && mode == 4) {          // Start  -  autonomus driving  
+      selbst = HIGH;  
     }
     if(BTinput == 'T') {
       spd = 255; // triangle - B - FAST
@@ -147,11 +165,26 @@ void loop() {
       spd = 0;   // cross   - X - STOP
       message = "Stop    ";
     }
-    if(BTinput == 'Q') message = "square  ";
-    if(BTinput == 'C') message = "circle  ";
+    if(BTinput == 'Q' && mode == 1) { // slower
+      spd -= 15;
+      if(spd < 30) spd = 30;
+      message = "square ";
+      message += spd;
+      message += " ";
+    }
+    if(BTinput == 'C' && mode == 1) { // faster
+      spd += 15;
+      if(spd > 255) spd = 255;      
+      message = "circle ";
+      message += spd;
+      message += " ";
+    }
     disp(0, 1, message);
     analogWrite(PIN_E1, spd);
     analogWrite(PIN_E2, spd);
   }
-  distance();
+  if(millis() > timer_sonar + RELAX_SONAR) {
+    timer_sonar = millis();
+    distance();
+  }
 }
