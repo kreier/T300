@@ -114,9 +114,11 @@ After some time of use almost all of the boards no longer support PWM for pin 11
 
 The above program consumes 91% of the available RAM of the Arduino Leonardo. For future projects we need more. Some contenstants:
 
-|        Model       | RAM instructions | RAM data |  Clock  | Pins |
-|:------------------:|:----------------:|:--------:|:-------:|:----:|
-| Arduino Leonardo   |      2.5 KiB     |     -    |  16 MHz |  20  |
-| ESP8266 (WeMos D1) |      32 KiB      |   80KiB  |  80 MHz |  12  |
-| ESP8266 (NodeMCU)  |      128 KiB     |   4 MiB  |  80 MHz |  12  |
-| ESP32 (NodeMCU)    |      520 KiB     |     -    | 240 MHz |  20  |
+|        Model       | RAM instructions |  RAM data |         Flash |    Clock | Pins |
+|:------------------:|-----------------:|:---------:|--------------:|---------:|:----:|
+| Arduino Leonardo   |           2.5 KB |     -     |         32 KB |   16 MHz |  20  |
+| ESP8266 (NodeMCU)  |            32 KB |   80 KB   |       4000 KB |  160 MHz |  12  |
+| ESP32 (WROVER-32)  |           520 KB |  4000 KB  |       4000 KB |  240 MHz |  20  |
+| Raspberry Pi 1     |       512,000 KB |     -     | 16,000,000 KB |  700 MHz |  26  |
+| Raspberry Pi 4     |     4,000,000 KB |     -     | 64,000,000 KB | 1500 MHz |  40  |
+| Nvidia Jetson Nano |     4,000,000 KB | 473 GFLOP | 16,000,000 KB | 918 MHz  |  40  |
