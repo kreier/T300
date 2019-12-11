@@ -1,12 +1,12 @@
 // Setup with 10 keys as defined in the root folder and used with kreier/remote and BitBlue on iOS
 //
-// Matrix for control - mode1
+// Matrix for control - mode1 - 2019/12/12
 //
-// key index M1[] M2[] SPED text
-//  F    0   HIGH HIGH 255  forward
-//  B    1   LOW  LOW  255  backward
-//  L    2   HIGH LOW  255  left
-//  R    3   LOW  HIGH 255  right
+// key index M1 M2 SPED text
+//  F    0   1  1  255  forward
+//  B    1   0  0  255  backward
+//  L    2   1  0  255  left
+//  R    3   0  1  255  right
 //
 //
 //
@@ -24,23 +24,26 @@
 #define PIN_SERVO      9
 #define PIN_E1        10 // enable - with PWM
 #define PIN_M1        12
-#define PIN_E2        11
+#define PIN_E2        11 // PWM
 #define PIN_M2        13
 #define MAX_DISTANCE  50
 #define RELAX_SONAR  200 // ms to check for obstacles
 #define RELAX_DRIVE  412 // ms to drive until check direction
+
+const char keyindex[] = "FBLRTCXQMS";
+const int motor1[] = {1, 0, 1, 0};
+const int motor2[] = {1, 0, 0, 1};
+const String text[] = {"forward","backward","left","right","triange","circle","  X  ","square","select","start"};
+
+int verzug = 200;
 
 char BTinput = '0';  // char input via bluetooth
 int  BTkey = 0;      // converted to numerical value
 int  pos = 0;
 int  spd = 0;
 int  mode = 1;
-int  keyindex[] = {"F","B","L","R","T","C","X","Q","M","S"};
 String message = "Stop   ";
-boolean M1[] = {HIGH, LOW, HIGH, LOW};
-boolean M2[] = {HIGH, LOW, LOW, HIGH};
-int sped[] = {255, 255, 200, 200};
-String text[] = {"forward","backward","left","right"};
+// int sped[] = {255, 255, 200, 200};
 unsigned long timer_sonar;
 unsigned long timer_drive;
 int DistanceCm;
@@ -103,47 +106,45 @@ void setup() {
   lcd.init();
   //lcd.backlight();
   disp(0, 0, "T300 robot car");
+  Serial.begin(115200);
 }
-
 
 void loop() {
   if (Serial1.available()) 
   {
     BTinput = Serial1.read();
-    // MODE 1: Drive
-    if(BTinput == 'F'  && mode == 1) { // up - forward
-        digitalWrite(PIN_M1, HIGH);
-        digitalWrite(PIN_M2, HIGH);
-        message = "forward ";
-    }
-    if(BTinput == 'B' && mode == 1) { // down - backward
-        digitalWrite(PIN_M1, LOW);
-        digitalWrite(PIN_M2, LOW);
-        message = "backward";
-    }
-    if(BTinput == 'L' && mode == 1) { // left turn
-        digitalWrite(PIN_M1, HIGH);
-        digitalWrite(PIN_M2, LOW);
-        message = "left    ";
-        if(spd > 200) spd = 160;
-    }
-    if(BTinput == 'R' && mode == 1) { // right turn
-        digitalWrite(PIN_M1, LOW);
-        digitalWrite(PIN_M2, HIGH);
-        message = "right   ";
-        if(spd > 200) spd = 160;
-    }
-    if(BTinput == 'S' && mode == 3) {          // Start  -  autonomus with the servo
-      for (pos = 30; pos <= 150; pos += 1) { 
-        myservo.write(pos);   
-        delay(15);      
+    for(BTkey = 0; BTkey < 9; BTkey += 1) {
+      if(BTinput == keyindex[BTkey]) {
+        Serial.print("Verstanden: ");
+        Serial.print(BTkey);
+        Serial.print("  ");
+        Serial.print(text[BTkey] + "\n");
+        message = text[BTkey];
+        break;
       }
-      for (pos = 150; pos >= 30; pos -= 1) { 
-         myservo.write(pos);              
-         delay(15);    
-      }
-      myservo.write(90);
-      message = "scanning";
+    }
+    if(mode == 1) {
+      digitalWrite(PIN_M1, motor1[BTkey]);
+      digitalWrite(PIN_M2, motor2[BTkey]);
+      spd = 255;
+    }
+    if(BTinput == 'S') {          // Start  -  autonomus with the servo
+        for(spd = 255; spd > 0; spd -= 16) {
+          analogWrite(PIN_E1, spd);
+          analogWrite(PIN_E2, spd);
+          Serial.print("PWM: ");
+          Serial.print(spd);
+          Serial.print("\n");
+          delay(verzug);
+        }
+        for(spd = 0; spd < 255; spd += 16) {
+          analogWrite(PIN_E1, spd);
+          analogWrite(PIN_E2, spd);
+          Serial.print("PWM: ");
+          Serial.print(spd);
+          Serial.print("\n");
+          delay(verzug);
+        }
     }
     if(BTinput == 'S' && mode == 4) {          // Start  -  autonomus driving  
       selbst = HIGH;  
