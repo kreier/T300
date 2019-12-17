@@ -23,7 +23,7 @@ install:
 #   - arduino --install-library "Adafruit example","Adafruit GFX Library"
  
 script:
-   - build_main_platforms
+   - latest.ino
  
 # Generate and deploy documentation
 after_success:
