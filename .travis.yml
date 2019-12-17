@@ -1,9 +1,6 @@
 language: c
 sudo: false
-cache:
-  directories:
-    - ~/arduino_ide
-    - ~/.arduino15/packages/
+
 git:
   depth: false
   quiet: true
@@ -23,7 +20,7 @@ install:
 #   - arduino --install-library "Adafruit example","Adafruit GFX Library"
  
 script:
-   - latest.ino
+   - gcc latest.ino
  
 # Generate and deploy documentation
 after_success:
