@@ -18,6 +18,7 @@ addons:
 env:
   global:
     - ARDUINO_IDE_VERSION="1.8.10"
+    - MAIN_PLATFORMS="leonardo","uno"      # "esp8266","esp32"
 #     - PRETTYNAME="T300 Robot car"
  
 before_install:
