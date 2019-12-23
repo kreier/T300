@@ -1,29 +1,39 @@
 language: c
-sudo: false
-
+cache:
+  directories:
+    - ~/arduino_ide
+    - ~/.arduino15/packages/
 git:
   depth: false
   quiet: true
+addons:
+  apt:
+    sources:
+      - llvm-toolchain-trusty-5.0
+      - key_url: 'http://apt.llvm.org/llvm-snapshot.gpg.key'
+    packages:
+      - clang-format-5.0
 
 env:
   global:
-#    - ARDUINO_IDE_VERSION="1.8.10"
-     - PRETTYNAME="T300 Robot car"
-# Optional, will default to "$TRAVIS_BUILD_DIR/Doxyfile"
-#    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
+    - ARDUINO_IDE_VERSION="1.8.10"
+    - MAIN_PLATFORMS="leonardo","uno"      # "esp8266","esp32"
+#    - INSTALL_PLATFORMS="leonardo","uno"      # "esp8266","esp32"
+#     - PRETTYNAME="T300 Robot car"
  
 before_install:
    - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
-#   - curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/run-clang-format.py > run-clang-format.py
+   - curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/run-clang-format.py > run-clang-format.py
  
 install:
 #   - arduino --install-library "Adafruit example","Adafruit GFX Library"
  
 script:
-   - gcc latest.ino
+   - python run-clang-format.py -r .
+   - build_main_platforms
  
 # Generate and deploy documentation
 after_success:
 #  - source <(curl -SLs  https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/library_check.sh)
 #  - source <(curl -SLs  https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/doxy_gen_and_deploy.sh)
-  - bash <(curl -s https://codecov.io/bash)
+#  - bash <(curl -s https://codecov.io/bash)
