@@ -53,7 +53,7 @@ how to control with 10 keys
 | Select |     M     |   Menu+  |   Menu+  |     Menu+    |       Menu+      |
 |  Start |     S     |   Start  |  Return  | toggle sound | start autonomous |
 |    △   |     T     |   turbo  |    up    |              |                  |
-|    ⚪   |     C     |  faster  |   open   |              |                  |
+|    ○   |     C     |  faster  |   open   |              |                  |
 |    X   |     X     |   Stop   |   down   |              |       Stop       |
 |    ☐   |     Q     |  slower  |   close  |              |                  |
 
