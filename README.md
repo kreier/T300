@@ -17,22 +17,147 @@ This is the third iteration of our robots at AISVN as described in [the history]
 
 ## Materials
 
-We ordered the following materials at [CỬA HÀNG IC ĐÂY RỒI](https://icdayroi.com/) for all students to have a common ground for further experiments both in software and hardware:
+We ordered the following materials for all students among others at [CỬA HÀNG IC ĐÂY RỒI](https://icdayroi.com/). This gives a common ground for further experiments both in software and hardware:
 
-1. [Arduino Leonardo](https://icdayroi.com/arduino-leonardo-r3) (because of the Micro-USB interface) 125.000₫
-2. [Khung xe robot 4 bánh](https://icdayroi.com/khung-xe-robot-4-banh) (4 wheels - stable driving) 140.000₫
-3. [Arduino Motor Shield L298](https://icdayroi.com/arduino-motor-shield-l298) 120.000₫
-4. [Module thu phát bluetooth HC-05](https://icdayroi.com/module-thu-phat-bluetooth-hc-05) 80.000₫
-5. [Pin Cell 18650 4200mAh 3.7V](https://icdayroi.com/pin-cell-18650-4200mah-3-7v) (4 AA batteries are not enough for motor and bluetooth, and not rechargable) 35.000₫
-6. [Hộp đế pin 18650 loại 2 cell](https://icdayroi.com/hop-de-pin-18650-loai-2-cell) battery holder for two 18650 batteries 7.000₫
-7. [Công tắc gạt MTS-103 3 trạng thái](https://icdayroi.com/cong-tac-gat-mts-103-3-trang-thai) power switch for the robot 5.500₫
-8. [Đồng hồ đo Vôn (Volt) 3.5-30V](https://icdayroi.com/dong-ho-do-von-volt-3-5-30v) Voltage display to check the charge level of the battery 22.000₫
-9. Four 10 cm cable 0.25 mm² to connect the motors to the shield ₫
-10. Three female-male jumper wire to connect the bluetooth module to the Arduino (+3.3V, GND, RX)
-11. So in general: some [jumper wires](https://icdayroi.com/bo-day-cam-test-board-65-soi) 19.000₫
-12. Maybe [a breadboard](https://icdayroi.com/testboard-mini-syb-170) to connect 5.000₫
+<table>
+<thead><tr><th>nr</th>
+<th>name</th>
+<th>amount</th>
+<th>unit price</th>
+<th>price</th>
+<th>link</th>
+</tr></thead>
+<tbody><tr>
+<td align="right">1</td>
+<td>Arduino Leonardo</td>
+<td align="center">1</td>
+<td align="right">125.000 VND</td>
+<td align="right">125.000 VND</td>
+<td><a href="https://icdayroi.com/arduino-leonardo-r3">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Robot base 4 wheels</td>
+<td align="center">1</td>
+<td align="right">140.000 VND</td>
+<td align="right">140.000 VND</td>
+<td><a href="https://icdayroi.com/khung-xe-robot-4-banh">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Motor Shield L298</td>
+<td align="center">1</td>
+<td align="right">120.000 VND</td>
+<td align="right">120.000 VND</td>
+<td><a href="https://icdayroi.com/arduino-motor-shield-l298">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Bluetooth AT-09</td>
+<td align="center">1</td>
+<td align="right">75.000 VND</td>
+<td align="right">75.000 VND</td>
+<td><a href="https://icdayroi.com/mach-thu-phat-bluetooth-4-0-uart-cc2541-at-09">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Battery 18650 3.7V</td>
+<td align="center">2</td>
+<td align="right">35.000 VND</td>
+<td align="right">70.000 VND</td>
+<td><a href="https://icdayroi.com/pin-cell-18650-4200mah-3-7v">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Battery holder 2C 18650</td>
+<td align="center">1</td>
+<td align="right">7.000 VND</td>
+<td align="right">7.000 VND</td>
+<td><a href="https://icdayroi.com/hop-de-pin-18650-loai-2-cell">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Power switch MTS 102</td>
+<td align="center">1</td>
+<td align="right">4.000 VND</td>
+<td align="right">4.000 VND</td>
+<td><a href="https://icdayroi.com/cong-tac-mts-102">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Battery voltage display</td>
+<td align="center">1</td>
+<td align="right">22.000 VND</td>
+<td align="right">22.000 VND</td>
+<td><a href="https://icdayroi.com/dong-ho-do-von-volt-3-5-30v">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td>Servo SG90</td>
+<td align="center">5</td>
+<td align="right">29.000 VND</td>
+<td align="right">145.000 VND</td>
+<td><a href="https://icdayroi.com/servo-sg90">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>Ultrasonic module HC-SR04</td>
+<td align="center">1</td>
+<td align="right">20.000 VND</td>
+<td align="right">20.000 VND</td>
+<td><a href="https://icdayroi.com/cam-bien-sieu-am-hc-sr04">link icdayroi.com</a></td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td>Robot 4DOF kit</td>
+<td align="center">1</td>
+<td align="right">246.000 VND</td>
+<td align="right">246.000 VND</td>
+<td><a href="https://www.lazada.vn/products/4-dof-acrylic-chua-lap-rap-diy-canh-tay-robot-diy-bo-cho-arduino-may-lam-ho-tro-hoc-tap-sg90-servo-i267650656-s391094259.html?spm=a2o4n.searchlist.list.3.1b121f13xg7z7G&amp;search=1">link lazada.vn</a></td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td>Wires DuPont MF and FF</td>
+<td align="center">20</td>
+<td align="right">300 VND</td>
+<td align="right">6.000 VND</td>
+<td><a href="https://thegioiic.com/products/day-be-cai-cai-dai-15cm">link thegioiic.com</a></td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td>Voltmeter for Battery</td>
+<td align="center">1</td>
+<td align="right">21.000 VND</td>
+<td align="right">21.000 VND</td>
+<td><a href="https://thegioiic.com/products/dong-ho-do-ap-dc-2-5-30vdc">link thegioiic.com</a></td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td>Display 1602 3.3V white on blue</td>
+<td align="center">1</td>
+<td align="right">32.000 VND</td>
+<td align="right">32.000 VND</td>
+<td><a href="https://thegioiic.com/products/lcd-1602-nen-xanh-duong-chu-trang-3-3v">link thegioiic.com</a></td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td>I2C serial to parallel adapter</td>
+<td align="center">1</td>
+<td align="right">13.500 VND</td>
+<td align="right">13.500 VND</td>
+<td><a href="https://thegioiic.com/products/mach-giao-tiep-lcd-ky-tu-sang-i2c">link thegioiic.com</a></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td> </td>
+<td align="center"></td>
+<td> </td>
+<td align="right">1.046.500 VND</td>
+<td> </td>
+</tr>
+</tbody></table>
 
-All in all some 550.000₫ are already spend on these simple materials. Further steps include the collaborative project of a self driving robot ([Khung xe robot omni đa hướng](https://icdayroi.com/khung-xe-robot-omni-da-huong) 2.250.000₫), controlled by an [Raspberry Pi](https://thegioiic.com/products/raspberry-pi-4-model-b-2gb) 1.580.000 VND with [Camera](https://thegioiic.com/products/camera-8mp-imx219-160-degree-fov) 305.000 VND for object detection and obstacle avoidance.
+Apart from these materials for 1.046.500 VND or 45 USD we need some time to assemble all parts - and then to program the robot car! Over the months of development several changes and standardizations took place. We ended up with a standard as platform at AISVN, to be found in the [respective github project](https://github.com/kreier/aisvn).
 
 ## Building steps
 
@@ -112,6 +237,25 @@ After some time of use almost all of the boards no longer support PWM for pin 11
 ### Gallery
 
 <img src="docs/T500-20191119.jpg" width="48%"> <img src="docs/T400-20191119.jpg" width="48%"> <img src="docs/T300-20191119.jpg" width="48%"> <img src="docs/asa-20191119.jpg" width="48%"> <img src="docs/T200-20191119.jpg" width="48%"> <img src="docs/T80.jpg" width="48%"> <img src="docs/T100-20191119.jpg" width="48%">
+
+## Materials 2019 - has been updated
+
+We ordered the following materials at [CỬA HÀNG IC ĐÂY RỒI](https://icdayroi.com/) for all students to have a common ground for further experiments both in software and hardware:
+
+1. [Arduino Leonardo](https://icdayroi.com/arduino-leonardo-r3) (because of the Micro-USB interface) 125.000₫
+2. [Khung xe robot 4 bánh](https://icdayroi.com/khung-xe-robot-4-banh) (4 wheels - stable driving) 140.000₫
+3. [Arduino Motor Shield L298](https://icdayroi.com/arduino-motor-shield-l298) 120.000₫
+4. [Module thu phát bluetooth HC-05](https://icdayroi.com/module-thu-phat-bluetooth-hc-05) 80.000₫
+5. [Pin Cell 18650 4200mAh 3.7V](https://icdayroi.com/pin-cell-18650-4200mah-3-7v) (4 AA batteries are not enough for motor and bluetooth, and not rechargable) 35.000₫
+6. [Hộp đế pin 18650 loại 2 cell](https://icdayroi.com/hop-de-pin-18650-loai-2-cell) battery holder for two 18650 batteries 7.000₫
+7. [Công tắc gạt MTS-103 3 trạng thái](https://icdayroi.com/cong-tac-gat-mts-103-3-trang-thai) power switch for the robot 5.500₫
+8. [Đồng hồ đo Vôn (Volt) 3.5-30V](https://icdayroi.com/dong-ho-do-von-volt-3-5-30v) Voltage display to check the charge level of the battery 22.000₫
+9. Four 10 cm cable 0.25 mm² to connect the motors to the shield ₫
+10. Three female-male jumper wire to connect the bluetooth module to the Arduino (+3.3V, GND, RX)
+11. So in general: some [jumper wires](https://icdayroi.com/bo-day-cam-test-board-65-soi) 19.000₫
+12. Maybe [a breadboard](https://icdayroi.com/testboard-mini-syb-170) to connect 5.000₫
+
+All in all some 550.000₫ are already spend on these simple materials. Further steps include the collaborative project of a self driving robot ([Khung xe robot omni đa hướng](https://icdayroi.com/khung-xe-robot-omni-da-huong) 2.250.000₫), controlled by an [Raspberry Pi](https://thegioiic.com/products/raspberry-pi-4-model-b-2gb) 1.580.000 VND with [Camera](https://thegioiic.com/products/camera-8mp-imx219-160-degree-fov) 305.000 VND for object detection and obstacle avoidance.
 
 ### Future updates
 
