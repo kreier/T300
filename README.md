@@ -13,7 +13,8 @@ This is the third iteration of our robots at AISVN as described in [the history]
 - PWM motor control on pin 10 to 13
 - 1602 LCD display over I2C on pin 2 and 3 SDA SCL
 - MPU6050 gyroscope for location control on I2C
-- IR encoder for one axis on pin A4 and A5
+- Ultrasonic distance with pin 7 (trigger) and pin 8 (echo/response)
+- PS2X controller at pin 5 SC, 6 CLK, A4 DAT and A5 CMD
 
 ## Materials
 
@@ -204,8 +205,8 @@ how to control with 10 keys
 | 2   |   SDA   |         I2C        |   Display 1602 and   |
 | 3~  |   SCL   |         I2C        |  MPU 6050 gyroscope  |
 | 4   |         |       buzzer       |   acoustic feedback  |
-| 5~  |         |                    |                      |
-| 6~  |         |                    |                      |
+| 5~  |         |      PS2X CS       | Chip Select (SPI SS) |
+| 6~  |         |      PS2X CLK      | Clock     (SPI SCLK) |
 | 7   |         | Ultrasonic trigger |                      |
 | 8   |         |   Ultrasonic echo  |                      |
 | 9~  |         |  Servo ultrasonic  |                      |
@@ -217,8 +218,8 @@ how to control with 10 keys
 | A1  |         | Servo up-down      | Robotarm 45-120      |
 | A2  |         | Servo forward-back | Robotarm 65-140      |
 | A3  |         | Servo open-close   | Robotarm 90-125      |
-| A4  |         |                    |                      |
-| A5  |         |                    |                      |
+| A4  |         |      PS2X DAT      | Data    (SPI MISO)   |
+| A5  |         |      PS2X CMD      | Command (SPI MOSI)   |
 
 ### Issues
 
