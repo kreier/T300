@@ -1,7 +1,8 @@
 # T300 robot 3.0 at AISVN
 
-[![Build Status](https://travis-ci.com/kreier/T300.svg?branch=master)](https://travis-ci.com/kreier/T300)
 [![MIT license](https://img.shields.io/github/license/kreier/T300?color=brightgreen)](http://opensource.org/licenses/MIT)
+[![GitHub release](https://img.shields.io/github/release/kreier/T300.svg)](https://GitHub.com/kreier/T300/releases/)
+[![Build Status](https://travis-ci.com/kreier/T300.svg?branch=master)](https://travis-ci.com/kreier/T300)
 
 This is the third iteration of our robots at AISVN as described in [the history](#history) further down. It used the Arduino Leonardo and incorporates:
 
@@ -227,6 +228,12 @@ how to control with 10 keys
 ### Issues
 
 After some time of use almost all of the boards no longer support PWM for pin 11 on the motor shield. Any value below 255 is interpreted as a low and the motor is shut off. Not very usefull for a motor project. Same is true for pin 1. Even though a voltage divider with 1kΩ/2kΩ is reducing the output voltage of the Arduino to 3.3 V several boards don't submit any signal. The bluetooth module can therefore only receive information, but not send them back.
+
+### 1602 display over I2C
+
+For optic feedback on the selected mode and current status we added a display with 16 characters in 2 rows. Instead of using 8 digital lines from the Arduino we utilized the I2C bus and needed only 2 wires - and potential 225 further I2C devices to connect. On November 24th, 2019 we got the successful feedback:
+
+![Display 1602](2019-11-24.jpg)
 
 ## History
 
