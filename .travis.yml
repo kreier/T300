@@ -1,3 +1,4 @@
+distro: xenial
 language: c
 cache:
   directories:
@@ -6,6 +7,7 @@ cache:
 git:
   depth: false
   quiet: true
+
 addons:
   apt:
     sources:
@@ -17,7 +19,7 @@ addons:
 env:
   global:
     - ARDUINO_IDE_VERSION="1.8.10"
-    - MAIN_PLATFORMS="leonardo","uno"      # "esp8266","esp32"
+#    - MAIN_PLATFORMS="leonardo","uno"      # "esp8266","esp32"
 #    - INSTALL_PLATFORMS="leonardo","uno"      # "esp8266","esp32"
 #     - PRETTYNAME="T300 Robot car"
  
