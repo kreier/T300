@@ -1,7 +1,6 @@
 # T300 robot 3.0 with BLE, ultrasonic, robot arm and display
-[![Build Status](https://travis-ci.com/kreier/T300.svg?branch=master)](https://travis-ci.com/kreier/T300)
+[![Build Status](https://github.com/kreier/T300/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/kreier/T300/actions/workflows/pages/pages-build-deployment)
 [![MIT license](https://img.shields.io/github/license/kreier/T300?color=brightgreen)](http://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.io/kreier/T300.svg)](http://hits.dwyl.io/kreier/T300)
 
 This is the third iteration of our robots at AISVN as described in [the history](#history) further down. It used the Arduino Leonardo and incorporates:
 
