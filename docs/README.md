@@ -237,6 +237,7 @@ For optic feedback on the selected mode and current status we added a display wi
 
 ## History
 
+- 2026-10-26 After more than 8 years this project continues at the Marie Curie School in Saigon with their [STEM Project](https://github.com/marie-curie-stem). We get a few students to contribute.
 - 2019-12-17 [T300](https://kreier.github.io/T300) this robot with 4 wheels, robot arm, ultrasonic distance sensor is the enhanced asa robot. Winner of the first AISVN robot competition [ROBOT 2019](https://sites.google.com/ais.edu.vn/robot2019).
 - 2019-11-04 [asa](https://github.com/kreier/asa) robot from first ASA period 2019/2020, evolved to T300 in the second period. After 9 sessions 60% of the students successfully finished their remote controlled robot.
 - 2019-04-08 [T200](https://github.com/kreier/T200) updated 2-wheel robot, controlled by an ESP32 over BLE and the software []() reverse engineered for our purpose.
